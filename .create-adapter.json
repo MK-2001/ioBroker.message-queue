@@ -1,0 +1,49 @@
+{
+    "cli": true,
+    "target": "directory",
+    "adapterName": "message-queue",
+    "title": "Message-Queue",
+    "description": "This adapter implements the integration to different message queues like Kafka, Rabbit-MQ, ... suggestions are welcome",
+    "keywords": [
+        "kafka rabbitmq mq queue message-broker producer consunmer"
+    ],
+    "contributors": [
+        "Marcus Krause"
+    ],
+    "expert": "yes",
+    "features": [
+        "adapter"
+    ],
+    "adminFeatures": [
+        "tab",
+        "custom"
+    ],
+    "type": "communication",
+    "startMode": "daemon",
+    "connectionType": "local",
+    "dataSource": "push",
+    "connectionIndicator": "yes",
+    "language": "JavaScript",
+    "adminReact": "no",
+    "tabReact": "no",
+    "tools": [
+        "ESLint",
+        "type checking",
+        "devcontainer"
+    ],
+    "releaseScript": "yes",
+    "devServer": "yes",
+    "devServerPort": 10081,
+    "indentation": "Space (4)",
+    "quotes": "double",
+    "es6class": "yes",
+    "authorName": "MK-2001",
+    "authorGithub": "MK-2001",
+    "authorEmail": "mq@itinsi.de",
+    "gitRemoteProtocol": "HTTPS",
+    "gitCommit": "no",
+    "defaultBranch": "main",
+    "license": "Apache License 2.0",
+    "dependabot": "yes",
+    "creatorVersion": "2.0.2"
+}

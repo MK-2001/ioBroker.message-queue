@@ -1,0 +1,117 @@
+{
+    "common": {
+        "name": "message-queue",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Message-Queue",
+        "titleLang": {
+            "en": "Message-Queue",
+            "de": "Message-Queue",
+            "ru": "Очередь сообщений",
+            "pt": "Fila de mensagens",
+            "nl": "Berichtenwachtrij",
+            "fr": "File d'attente de messages",
+            "it": "Coda di messaggi",
+            "es": "Cola de mensajes",
+            "pl": "Kolejka wiadomości",
+            "zh-cn": "消息队列"
+        },
+        "desc": {
+            "en": "This adapter implements the integration to different message queues like Kafka, Rabbit-MQ, ... suggestions are welcome",
+            "de": "Dieser Adapter implementiert die Integration in verschiedene Nachrichtenwarteschlangen wie Kafka, Rabbit-MQ, ... Vorschläge sind willkommen",
+            "ru": "Этот адаптер реализует интеграцию с различными очередями сообщений, такими как Kafka, Rabbit-MQ, ... предложения приветствуются.",
+            "pt": "Este adaptador implementa a integração a diferentes filas de mensagens como Kafka, Rabbit-MQ, ... sugestões são bem vindas",
+            "nl": "Deze adapter implementeert de integratie met verschillende berichtenwachtrijen zoals Kafka, Rabbit-MQ, ... suggesties zijn welkom",
+            "fr": "Cet adaptateur implémente l'intégration à différentes files d'attente de messages comme Kafka, Rabbit-MQ, ... les suggestions sont les bienvenues",
+            "it": "Questo adattatore implementa l'integrazione a diverse code di messaggi come Kafka, Rabbit-MQ, ... suggerimenti sono i benvenuti",
+            "es": "Este adaptador implementa la integración a diferentes colas de mensajes como Kafka, Rabbit-MQ, ... se aceptan sugerencias",
+            "pl": "Ten adapter implementuje integrację z różnymi kolejkami wiadomości, takimi jak Kafka, Rabbit-MQ, ... sugestie są mile widziane",
+            "zh-cn": "该适配器实现了对不同消息队列的集成，如 Kafka、Rabbit-MQ、...欢迎提出建议"
+        },
+        "authors": [
+            "MK-2001 <mq@itinsi.de>"
+        ],
+        "keywords": [
+            "kafka rabbitmq mq queue message-broker producer consunmer"
+        ],
+        "license": "Apache-2.0",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "message-queue.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/MK-2001/ioBroker.message-queue/main/admin/message-queue.png",
+        "readme": "https://github.com/MK-2001/ioBroker.message-queue/blob/main/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "communication",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "push",
+        "materialize": true,
+        "materializeTab": true,
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "Message-Queue",
+                "de": "Message-Queue",
+                "ru": "Очередь сообщений",
+                "pt": "Fila de mensagens",
+                "nl": "Berichtenwachtrij",
+                "fr": "File d'attente de messages",
+                "it": "Coda di messaggi",
+                "es": "Cola de mensajes",
+                "pl": "Kolejka wiadomości",
+                "zh-cn": "消息队列"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "supportCustoms": true,
+        "dependencies": [
+            {
+                "js-controller": ">=2.0.0"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
+}
