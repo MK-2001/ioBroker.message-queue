@@ -84,11 +84,18 @@
             {
                 "js-controller": ">=2.0.0"
             }
-        ]
+        ],
+        "adminUI": {
+            "custom": "json"
+        },
+        "jsonCustom": true,
+        "jsonConfig": true
     },
     "native": {
-        "option1": true,
-        "option2": "42"
+        "mqServer": "kafka",
+        "mqPort": "9092",
+        "changesRelogInterval": 60,
+        "changesMinDelta": 0
     },
     "objects": [],
     "instanceObjects": [

@@ -19,3 +19,4 @@ admin/i18n/*/flat.txt
 # Local ignores
 .history
 .DS_Store
+ownReadme.md

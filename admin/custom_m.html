@@ -17,6 +17,10 @@
             <input type="checkbox" data-field="setAck" data-default="false">
             <span class="translate">ack</span>
         </div>
+        <div class="col s2">
+            <input type="text" data-field="topicAlias" size="250">
+            <span class="translate">topic alias</span>
+        </div>
     </div>
 </script>
 
@@ -37,7 +41,8 @@
                 enabled:        false,
                 interval:       '5m',
                 state:          false,
-                setAck:         false
+                setAck:         false,
+                topicAlias:     null
             };
         }
     }
