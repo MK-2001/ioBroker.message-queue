@@ -1,6 +1,6 @@
 {
   "name": "iobroker.message-queue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This adapter implements the integration to different message queues like Kafka, Rabbit-MQ, ... suggestions are welcome",
   "author": {
     "name": "MK-2001",

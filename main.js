@@ -193,44 +193,49 @@ class MessageQueue extends utils.Adapter {
     //  * @param {ioBroker.Object | null | undefined} obj
     //  */
     onObjectChange(realId, obj) {
-        if (obj) {
-            // The object was changed
-            this.log.info(`object ${realId} changed: ${JSON.stringify(obj)}`);
-            // Hole alias
-            let id = realId;
+        try {
+            if (obj) {
+                // The object was changed
+                this.log.info(`object ${realId} changed: ${JSON.stringify(obj)}`);
+                // Hole alias
+                let id = realId;
 
-            if (obj && obj.common && obj.common.custom  && obj.common.custom[this.namespace] && typeof obj.common.custom[this.namespace] === "object" && obj.common.custom[this.namespace].enabled) {
-                if (obj.common.custom[this.namespace] && obj.common.custom[this.namespace].aliasId !== realId && obj.common.custom[this.namespace].aliasId !== "") {
-                    aliasMap[id] = obj.common.custom[this.namespace].aliasId;
-                    this.log.debug(`Registered Alias: ${realId} --> ${aliasMap[realId]}`);
-                    id = aliasMap[realId];
+                if (obj && obj.common && obj.common.custom  && obj.common.custom[this.namespace] && typeof obj.common.custom[this.namespace] === "object" && obj.common.custom[this.namespace].enabled) {
+                    if (obj.common.custom[this.namespace] && obj.common.custom[this.namespace].aliasId !== realId && obj.common.custom[this.namespace].aliasId !== "") {
+                        aliasMap[id] = obj.common.custom[this.namespace].aliasId;
+                        this.log.debug(`Registered Alias: ${realId} --> ${aliasMap[realId]}`);
+                        id = aliasMap[realId];
+                    } else {
+                        let typeVal = typeof obj.common.custom[this.namespace].aliasId;
+                        this.log.warn(`Ignoring Alias-ID (${obj.common.custom[this.namespace].aliasId}) because identical to ID for ${realId}`);
+                        obj.common.custom[this.namespace].aliasId = "";
+                    }
+
+                    // Prüfe ob es bereits im Array angelegt ist
+                    if(!mqDPs[id]) {
+                        mqDPs[id] = obj.common.custom[this.namespace];
+                        mqDPs[id].realId = realId;
+                        this.subscribeForeignStates(mqDPs[id].realId);
+                        this.log.debug("Enabled subscription for " + id + " (" + realId + ")");
+                    }
                 } else {
-                    this.log.warn(`Ignoring Alias-ID because identical to ID for ${realId}`);
-                    obj.common.custom[this.namespace].aliasId = "";
-                }
-
-                // Prüfe ob es bereits im Array angelegt ist
-                if(!mqDPs[id]) {
-                    mqDPs[id] = obj.common.custom[this.namespace];
-                    mqDPs[id].realId = realId;
-                    this.subscribeForeignStates(mqDPs[id].realId);
-                    this.log.debug("Enabled subscription for " + id + " (" + realId + ")");
+                    if(mqDPs[id]) {
+                        this.log.debug(`Unregistered Subscription: ${id}`);
+                        this.unsubscribeForeignStates(realId);
+                        delete mqDPs[id];
+                    }
                 }
             } else {
-                if(mqDPs[id]) {
-                    this.log.debug(`Unregistered Subscription: ${id}`);
+                // The object was deleted
+                this.log.info(`object ${realId} deleted`);
+                if(mqDPs[realId]) {
+                    this.log.debug(`Unregistered Subscription: ${realId}`);
                     this.unsubscribeForeignStates(realId);
-                    delete mqDPs[id];
+                    delete mqDPs[realId];
                 }
             }
-        } else {
-            // The object was deleted
-            this.log.info(`object ${realId} deleted`);
-            if(mqDPs[realId]) {
-                this.log.debug(`Unregistered Subscription: ${realId}`);
-                this.unsubscribeForeignStates(realId);
-                delete mqDPs[realId];
-            }
+        } catch (e) {
+            this.log.error("Unexpected Error: " + JSON.stringify(e));
         }
     }
 
@@ -243,10 +248,11 @@ class MessageQueue extends utils.Adapter {
         if (state) {
             // The state was changed
             this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+
             await this.producer.send({
                 topic: id,
                 messages: [
-                    { value: state.val },
+                    { value: state.val + "" },
                 ],
             });
         } else {
