@@ -196,7 +196,7 @@ class MessageQueue extends utils.Adapter {
         try {
             if (obj) {
                 // The object was changed
-                this.log.info(`object ${realId} changed: ${JSON.stringify(obj)}`);
+                this.log.debug(`object ${realId} changed: ${JSON.stringify(obj)}`);
                 // Hole alias
                 let id = realId;
 
@@ -247,7 +247,7 @@ class MessageQueue extends utils.Adapter {
     async onStateChange(id, state) {
         if (state) {
             // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+            this.log.debug(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 
             await this.producer.send({
                 topic: id,
