@@ -15,6 +15,11 @@
 
 This adapter implements the integration to different message queues like Kafka, Rabbit-MQ, ... suggestions are welcome
 
+## Project and Setup
+This adapter should enable you ioBroker to communicate via kafka or other message queues. We are facing currently two common used mq in the industry kafka and rabbitmq.
+
+The timeline of this project will enable sending changes to Kafka starting V0 and receiving and binding to kafka messages from V0.5 (~ summer 2022). Starting on 2023 the project will include rabbitmq.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):

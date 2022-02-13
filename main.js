@@ -112,8 +112,13 @@ class MessageQueue extends utils.Adapter {
                 }
             }
             // Do the subscription
-            Object.keys(mqDPs).forEach(id =>
-                mqDPs[id] && mqDPs[id] && mqDPs[id].realId && this.subscribeForeignStates(mqDPs[id].realId));
+            if(mqDPs.count > 100) {
+                // it is more performant if the adapter subscribes to all changes instead of each single selected state.
+                this.subscribeForeignStates("*");
+            } else {
+                Object.keys(mqDPs).forEach(id =>
+                    mqDPs[id] && mqDPs[id] && mqDPs[id].realId && this.subscribeForeignStates(mqDPs[id].realId));
+            }
         });
         /*
         For every state in the system there has to be also an object of type state
