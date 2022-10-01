@@ -21,7 +21,7 @@
     "url": "https://github.com/MK-2001/ioBroker.message-queue"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.5.1",
+    "@iobroker/adapter-core": "^2.6.6",
     "kafkajs": "^2.0.0"
   },
   "devDependencies": {
