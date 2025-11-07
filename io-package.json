@@ -67,6 +67,7 @@
         "extIcon": "https://raw.githubusercontent.com/MK-2001/ioBroker.message-queue/main/admin/message-queue.png",
         "readme": "https://github.com/MK-2001/ioBroker.message-queue/blob/main/README.md",
         "loglevel": "info",
+        "tier": 2,
         "mode": "daemon",
         "type": "communication",
         "compact": true,
