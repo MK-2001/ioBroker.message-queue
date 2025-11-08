@@ -59,7 +59,10 @@
         "keywords": [
             "kafka rabbitmq mq queue message-broker producer consunmer"
         ],
-        "license": "Apache-2.0",
+        "licenseInformation": {
+            "type": "free",
+            "license": "Apache-2.0"
+        },
         "platform": "Javascript/Node.js",
         "main": "main.js",
         "icon": "message-queue.png",
