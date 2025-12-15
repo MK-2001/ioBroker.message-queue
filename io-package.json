@@ -61,7 +61,6 @@
         ],
         "license": "Apache-2.0",
         "platform": "Javascript/Node.js",
-        "main": "main.js",
         "icon": "message-queue.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/MK-2001/ioBroker.message-queue/main/admin/message-queue.png",
