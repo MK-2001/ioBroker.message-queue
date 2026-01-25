@@ -14,6 +14,7 @@
   "homepage": "https://github.com/MK-2001/ioBroker.message-queue",
   "license": "Apache-2.0",
   "keywords": [
+    "ioBroker",
     "kafka rabbitmq mq queue message-broker producer consunmer"
   ],
   "repository": {
