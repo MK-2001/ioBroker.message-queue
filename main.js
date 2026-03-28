@@ -12,7 +12,7 @@ const mqDPs     = {};
 const { Kafka } = require('kafkajs');
 
 // Load your modules here, e.g.:
-// const fs = require("fs");
+// const fs = require("node:fs");
 
 class MessageQueue extends utils.Adapter {
 
