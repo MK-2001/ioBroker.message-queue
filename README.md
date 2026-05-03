@@ -29,6 +29,8 @@ The timeline of this project will enable sending changes to Kafka starting V0 an
 ### 0.0.2
 * (MK-2001) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
                                  Apache License
                            Version 2.0, January 2004
