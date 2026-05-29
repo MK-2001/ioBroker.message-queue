@@ -26,6 +26,10 @@ The timeline of this project will enable sending changes to Kafka starting V0 an
     ### **WORK IN PROGRESS**
 -->
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.0.2
 * (MK-2001) initial release
 
